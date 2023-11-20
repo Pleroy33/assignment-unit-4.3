@@ -1,46 +1,52 @@
 console.log('***** Cart Functions *****');
 // Make sure to test all functions here in the JS file!
 // We want to see how you are testing your code!!!
-let basket = [];
-const maxItems = 5
+let basket = [];   //create array basket and set it to empty
+const maxItems = 5 //create maxItems and set it to 5 for max items in basket per stretch goal
 
 
-function addItem(item) {
-    console.log('running addItem')
-    console.log('Add item ', item)
-    basket.push(item);
-    return true;
+function addItem(item) {                //created function addItem with the parameter item
+    console.log('running addItem')      //logged a string to check if its running
+    console.log('Add item ', item)      //logged a sting and the parameter item to see what is added in the console
+    basket.push(item);                  //pushed parameter item into array basket
+    return true;                        //returned true that the item was added
 
 }
-console.log(`Basket is ${basket}`);
+console.log(`Basket is ${basket}`); //used example tests in code before adding my own above.  
 console.log('Adding apples (expect true)', addItem('apples'));
 console.log(`Basket is now ${basket}`);
 
 
-addItem('apples');
-addItem('pears');
-addItem('oranges');
-console.log(`Basket is now ${basket}`);
+addItem('apples'); //added parameter apples
+addItem('pears');   //added parameter pears
+addItem('oranges'); //added parameter oranges
+console.log(`Basket is now ${basket}`);// concole logged the array basket to see that parameters were passed through to it properly
 
-function listItems() {
-    console.log('running listItems');
-    list = '';
-    for (i of basket) { list += i + '\n' };
-    console.log(list);
-    return list;
+function listItems() {                //tried to use a for statement, got hung up, looked at Gavin's code from slack, using a for..of 
+    console.log('running listItems');//console to test function is running
+    list = '';              //establised list locally as an element
+    for (i of basket) { list += i + '\n' };// for each index of basket, item is added to list, \n creates a line break, 
+    console.log(list); //list is console logged, one element per line
+    return list;// 
 }
 
-listItems();
+listItems();//call the function listItems()
 
 
 
 
 
-function empty(){
-    console.log('running empty basket');
-    basket.length = 0};
-empty();
-console.log(basket);
+function empty(){        //create function called empty to empty the array basket
+    console.log('running empty basket');//console log to verify the function is running
+    basket.length = 0};// set basket length to zero to empty it per slack conversation.  I would have just  used basket = [] otherwise.
+empty();// called the function empty to run.
+console.log(basket);//logged basket to verify its empty
+
+function isFull(){//created function to consider if the basket is full or empty
+    if (basket.length < maxItems){return false}//if the length of basket element indexes is less than the maxItems number, return false
+    else{return true};//otherwise return true
+
+}
 
 
 
