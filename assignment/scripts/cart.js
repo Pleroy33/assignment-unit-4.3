@@ -16,23 +16,29 @@ console.log(`Basket is ${basket}`);
 console.log('Adding apples (expect true)', addItem('apples'));
 console.log(`Basket is now ${basket}`);
 
-function listItems() {
-    console.log('running list item');
-    list = '';
-    for (i of basket) { list += i + '\n' };
-    console.log(list);
-
-}
-
-
-
 
 addItem('apples');
 addItem('pears');
 addItem('oranges');
-console.log(basket);
+console.log(`Basket is now ${basket}`);
 
-function empty(){basket.length = 0};
+function listItems() {
+    console.log('running listItems');
+    list = '';
+    for (i of basket) { list += i + '\n' };
+    console.log(list);
+    return list;
+}
+
+listItems();
+
+
+
+
+
+function empty(){
+    console.log('running empty basket');
+    basket.length = 0};
 empty();
 console.log(basket);
 
