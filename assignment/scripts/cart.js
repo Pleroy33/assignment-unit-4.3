@@ -5,15 +5,15 @@ let basket = [];   //create array basket and set it to empty
 const maxItems = 5 //create maxItems and set it to 5 for max items in basket per stretch goal
 
 
-function addItem(item) {                //created function addItem with the parameter item
-    console.log('running addItem')      //logged a string to check if its running
-    console.log('Add item ', item)      //logged a sting and the parameter item to see what is added in the console
-    basket.push(item);                  //pushed parameter item into array basket
-    return true;                        //returned true that the item was added
+function addItem(item) {                    //created addItem with parameter item,
+    if (isFull() === false){                //updated addItem with isFull to run only if basket is less than maxItems
+        console.log('Add item ', item)      //logged a sting and the parameter item to see what is added in the console
+        basket.push(item);                  //pushed parameter item into array basket
+        return true;                        //returned true that the item was added
 
+    }else {{ console.log('the cart is full') ;return false;}}//stops if addItem is not less than isFull and logs string
 }
 console.log(`Basket is ${basket}`); //used example tests in code before adding my own above.  
-console.log('Adding apples (expect true)', addItem('apples'));
 console.log(`Basket is now ${basket}`);
 
 
@@ -36,17 +36,20 @@ listItems();//call the function listItems()
 
 
 
-function empty(){        //create function called empty to empty the array basket
+function empty() {        //create function called empty to empty the array basket
     console.log('running empty basket');//console log to verify the function is running
-    basket.length = 0};// set basket length to zero to empty it per slack conversation.  I would have just  used basket = [] otherwise.
+    basket.length = 0
+};// set basket length to zero to empty it per slack conversation.  I would have just  used basket = [] otherwise.
 empty();// called the function empty to run.
 console.log(basket);//logged basket to verify its empty
 
-function isFull(){//created function to consider if the basket is full or empty
-    if (basket.length < maxItems){return false}//if the length of basket element indexes is less than the maxItems number, return false
-    else{return true};//otherwise return true
+function isFull() {//created function to consider if the basket is full or empty
+    if (basket.length < maxItems) { return false }//if the length of basket element indexes is less than the maxItems number, return false
+    else { return true };//otherwise return true
 
 }
+
+
 
 
 
